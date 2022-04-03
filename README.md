@@ -1,16 +1,13 @@
-# todo_app_sprint_test
+# Sprint 5 Test - Todo App in Flutter
+Rushi Patel
 
-A new Flutter project.
+## This app provides following features :
 
-## Getting Started
+- Add a Todo : on clicking '+' FAB Icon
+- Edit a Todo : on clicking Edit Icon next to every todo
+- Check Todo : on clicking Checkbox in front of every todo
+- Delete Todo : on Long Pressing a Todo
 
-This project is a starting point for a Flutter application.
+### NOTE : App screenshots are present in seperate folder named 'screenshots'.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
