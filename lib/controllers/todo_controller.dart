@@ -16,4 +16,14 @@ class TodoController extends GetxController {
     });
     super.onInit();
   }
+
+  void addTodo(String text) {
+    todos.add(Todo(text: text));
+  }
+
+  void removeTodo(int index) {
+    todos.removeAt(index);
+  }
+
+  int get count => todos.length;
 }

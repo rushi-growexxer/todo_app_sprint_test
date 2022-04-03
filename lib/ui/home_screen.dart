@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_is_empty
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,30 +15,31 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(MyApp.title),
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.add,
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: Text('Todo App - ${todoController.count} Task(s) Left'),
+          centerTitle: true,
         ),
-        onPressed: () {
-          Get.toNamed(TodoScreen.id);
-        },
-      ),
-      body:
-          // check for zero items in todo list
-          todoController.todos.isEmpty
-              ? Center(
-                  child: Text(
-                    'No Todos',
-                    style: TextStyle(fontSize: 25, color: Colors.grey),
-                  ),
-                )
-              : Obx(
-                  () => ListView.builder(
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(
+            Icons.add,
+          ),
+          onPressed: () {
+            Get.toNamed(TodoScreen.id);
+          },
+        ),
+        body:
+            // check for zero items in todo list
+
+            todoController.todos.length < 1
+                ? Center(
+                    child: Text(
+                      'No Todos',
+                      style: TextStyle(fontSize: 25, color: Colors.grey),
+                    ),
+                  )
+                : ListView.builder(
                     itemBuilder: (context, index) => Dismissible(
                       key: UniqueKey(),
                       background: Container(
@@ -79,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         // delete the Todo on long press
                         onLongPress: () {
-                          todoController.todos.removeAt(index);
+                          todoController.removeTodo(index);
                           Get.snackbar(
                               'Removed!', "Task was Deleted succesfully.",
                               snackPosition: SnackPosition.BOTTOM,
@@ -90,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     itemCount: todoController.todos.length,
                   ),
-                ),
+      ),
     );
   }
 }

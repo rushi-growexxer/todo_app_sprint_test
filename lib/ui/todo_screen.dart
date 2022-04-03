@@ -23,7 +23,7 @@ class TodoScreen extends StatelessWidget {
               child: TextField(
                 // textAlign: TextAlign.center,
                 decoration: const InputDecoration(
-                  hintText: "What do you want to accomplish?",
+                  hintText: "What's your task?",
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                 ),
@@ -57,11 +57,7 @@ class TodoScreen extends StatelessWidget {
                   color: Colors.green,
                   textColor: Colors.white,
                   onPressed: () {
-                    todoController.todos.add(
-                      Todo(
-                        text: textEditingController.text,
-                      ),
-                    );
+                    todoController.addTodo(textEditingController.text);
                     Get.back();
                   },
                   shape: RoundedRectangleBorder(
