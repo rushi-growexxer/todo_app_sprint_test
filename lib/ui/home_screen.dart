@@ -55,17 +55,30 @@ class HomeScreen extends StatelessWidget {
                             snackPosition: SnackPosition.BOTTOM);
                       },
                       child: ListTile(
-                        title: Text(
-                          todoController.todos[index].text!,
-                          style: todoController.todos[index].done
-                              ? const TextStyle(
-                                  color: Colors.purple,
-                                  decoration: TextDecoration.lineThrough,
-                                )
-                              : const TextStyle(
-                                  color: Colors.black,
+                        title: Text(todoController.todos[index].text,
+                            style: TextStyle(
+                                color: todoController.todos[index].done
+                                    ? Colors.purple
+                                    : Colors.black,
+                                decoration: todoController.todos[index].done
+                                    ? TextDecoration.lineThrough
+                                    : null,
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.bold)),
+                        subtitle: todoController.todos[index].description !=
+                                null
+                            ? Text(
+                                todoController.todos[index].description ?? '',
+                                style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize: 14.0,
+                                  decoration: todoController.todos[index].done
+                                      ? TextDecoration.lineThrough
+                                      : null,
                                 ),
-                        ),
+                              )
+                            : null,
+
                         trailing: IconButton(
                           onPressed: () => Get.to(() => TodoEdit(index: index)),
                           icon: const Icon(Icons.edit),
@@ -85,7 +98,8 @@ class HomeScreen extends StatelessWidget {
                               'Removed!', "Task was Deleted succesfully.",
                               snackPosition: SnackPosition.BOTTOM,
                               colorText: Colors.white,
-                              backgroundColor: Colors.purple);
+                              backgroundColor: Colors.purple,
+                              duration: Duration(seconds: 1));
                         },
                       ),
                     ),
