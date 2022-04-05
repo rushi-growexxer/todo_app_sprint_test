@@ -1,8 +1,9 @@
 class Todo {
-  String? text;
+  String text;
+  String? description;
   bool done;
 
-  Todo({this.text, this.done = false});
+  Todo({required this.text, this.description, this.done = false});
 
   factory Todo.fromJson(Map<String, dynamic> json) =>
       Todo(text: json['text'], done: json['done']);

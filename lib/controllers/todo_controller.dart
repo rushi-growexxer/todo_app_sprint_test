@@ -17,8 +17,8 @@ class TodoController extends GetxController {
     super.onInit();
   }
 
-  void addTodo(String text) {
-    todos.add(Todo(text: text));
+  void addTodo({required String text, String? description}) {
+    todos.add(Todo(text: text, description: description));
   }
 
   void removeTodo(int index) {
