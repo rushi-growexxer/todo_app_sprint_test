@@ -23,6 +23,9 @@ class TodoEdit extends StatelessWidget {
           children: [
             Column(
               children: [
+                SizedBox(
+                  height: 20,
+                ),
                 TextField(
                   decoration: const InputDecoration(
                     hintText: "What's your task?",
@@ -55,7 +58,7 @@ class TodoEdit extends StatelessWidget {
               children: [
                 RaisedButton(
                   child: const Text('Cancel'),
-                  color: Colors.red,
+                  color: Colors.grey[700],
                   textColor: Colors.white,
                   onPressed: () {
                     Get.back();
@@ -66,7 +69,7 @@ class TodoEdit extends StatelessWidget {
                 ),
                 RaisedButton(
                   child: const Text('Update'),
-                  color: Colors.green,
+                  color: Colors.purple,
                   textColor: Colors.white,
                   onPressed: () {
                     if (textEditingController.text.isNotEmpty) {
